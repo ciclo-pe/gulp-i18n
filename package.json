@@ -1,13 +1,9 @@
 {
   "name": "gulp-i18n",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "description": "A gulp plugin to compile language files using messageformat",
+  "author": "Lupo Montero <lupo@ciclo.pe>",
+  "license": "MIT",
   "dependencies": {
     "gulp-util": "^3.0.7",
     "messageformat": "^0.2.2",
