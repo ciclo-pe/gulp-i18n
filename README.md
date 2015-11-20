@@ -2,6 +2,12 @@
 
 Compile `json` files using [`messageformat.js`](https://github.com/SlexAxton/messageformat.js).
 
+## Install
+
+```
+npm install --save-dev gulp-i18n
+```
+
 ## Example
 
 1. Create `json` files with translations
