@@ -5,9 +5,7 @@ const Path = require('path');
 const Through = require('through2');
 const MessageFormat = require('messageformat');
 const Gutil = require('gulp-util');
-
-
-const internals = {};
+const Yaml = require('js-yaml');
 
 
 module.exports = function (options) {
@@ -17,6 +15,7 @@ module.exports = function (options) {
   const parse = function (file, encoding, next) {
 
     const relativeParts = file.relative.split('/');
+    const ext = relativeParts[relativeParts.length - 1].split('.').pop();
     const message = {
       locale: relativeParts.shift(),
       namespace: relativeParts.join('/').replace(/\.[^.]*$/, '').replace(/\\/g, '/'),
@@ -24,7 +23,12 @@ module.exports = function (options) {
     };
 
     try {
-      message.data = JSON.parse(file.contents.toString());
+      if (ext === 'yml') {
+         message.data = Yaml.safeLoad(file.contents.toString());
+      }
+      else {
+        message.data = JSON.parse(file.contents.toString());
+      }
     }
     catch (err) {
       console.error(err);
