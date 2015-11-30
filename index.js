@@ -57,20 +57,13 @@ module.exports = function (options) {
 
       const mf = new MessageFormat(locale);
       const data = locales[locale];
-      let compiled = 'window.i18n = {\n';
-      let count = 0;
+      let compiled = 'window.i18n = ' + mf.functions() + ';';
 
       Object.keys(data).forEach((namespace) => {
 
-        if (count++) {
-          compiled += '\n,\n';
-        }
-
-        compiled += JSON.stringify(namespace) + ': ';
-        compiled += mf.precompileObject(data[namespace]);
+        compiled += '\n\nwindow.i18n[' + JSON.stringify(namespace) + '] = ';
+        compiled += mf.precompileObject(data[namespace]) + ';';
       })
-
-      compiled += '\n};';
 
       this.push(new Gutil.File({
         path: locale + '.js',
