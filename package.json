@@ -2,6 +2,10 @@
   "name": "gulp-i18n",
   "version": "1.0.1",
   "description": "A gulp plugin to compile language files using messageformat",
+  "repository": {
+    "type" : "git",
+    "url" : "bitbucket:ciclo-pe/gulp-i18n"
+  },
   "author": "Lupo Montero <lupo@ciclo.pe>",
   "license": "MIT",
   "dependencies": {
