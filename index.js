@@ -6,6 +6,7 @@ const Through = require('through2');
 const MessageFormat = require('messageformat');
 const Gutil = require('gulp-util');
 const Yaml = require('js-yaml');
+const Marked = require('marked');
 
 
 module.exports = function (options) {
@@ -29,6 +30,16 @@ module.exports = function (options) {
       else {
         message.data = JSON.parse(file.contents.toString());
       }
+
+      Object.keys(message.data || {}).forEach((key) => {
+
+        // Convert Markdown to HTML if string contains new line char.
+        if (message.data[key] && message.data[key].indexOf('\n') >= 0) {
+          message.data[key] = Marked(message.data[key].trim(), {
+            breaks: true
+          });
+        }
+      });
     }
     catch (err) {
       console.error(err);
