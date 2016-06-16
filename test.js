@@ -1,3 +1,4 @@
+/*eslint no-eval:0 */
 'use strict';
 
 
@@ -5,7 +6,6 @@ const Os = require('os');
 const Path = require('path');
 const Assert = require('assert');
 const File = require('vinyl');
-const EventStream = require('event-stream');
 const I18n = require('./');
 
 
