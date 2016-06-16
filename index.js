@@ -1,7 +1,6 @@
 'use strict';
 
 
-const Path = require('path');
 const Through = require('through2');
 const MessageFormat = require('messageformat');
 const Gutil = require('gulp-util');
@@ -25,7 +24,7 @@ module.exports = function (options) {
 
     try {
       if (ext === 'yml') {
-         message.data = Yaml.safeLoad(file.contents.toString());
+        message.data = Yaml.safeLoad(file.contents.toString());
       }
       else {
         message.data = JSON.parse(file.contents.toString());
@@ -57,13 +56,7 @@ module.exports = function (options) {
 
       const mf = new MessageFormat(locale);
       const data = locales[locale];
-      let compiled = 'window.i18n = ' + mf.functions() + ';';
-
-      Object.keys(data).forEach((namespace) => {
-
-        compiled += '\n\nwindow.i18n[' + JSON.stringify(namespace) + '] = ';
-        compiled += mf.precompileObject(data[namespace]) + ';';
-      })
+      const compiled = 'window.i18n = (' + mf.compile(data) + ')();';
 
       this.push(new Gutil.File({
         path: locale + '.js',
