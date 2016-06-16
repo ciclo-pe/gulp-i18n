@@ -1,6 +1,6 @@
 {
   "name": "gulp-i18n",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A gulp plugin to compile language files using messageformat",
   "keywords": [
     "gulpplugin",
