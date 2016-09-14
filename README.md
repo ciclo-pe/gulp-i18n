@@ -1,5 +1,8 @@
 # gulp-i18n
 
+[![NPM](https://nodei.co/npm/gulp-i18n.png?compact=true)](https://nodei.co/npm/gulp-i18n/)
+[![Build Status](https://travis-ci.org/ciclo-pe/gulp-i18n.svg?branch=master)](https://travis-ci.org/ciclo-pe/gulp-i18n)
+
 Compile `json` files using [`messageformat.js`](https://github.com/SlexAxton/messageformat.js).
 
 ## Install
