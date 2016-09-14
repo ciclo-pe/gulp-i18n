@@ -1,7 +1,10 @@
 # gulp-i18n
 
 [![NPM](https://nodei.co/npm/gulp-i18n.png?compact=true)](https://nodei.co/npm/gulp-i18n/)
+
 [![Build Status](https://travis-ci.org/ciclo-pe/gulp-i18n.svg?branch=master)](https://travis-ci.org/ciclo-pe/gulp-i18n)
+[![Dependency Status](https://david-dm.org/ciclo-pe/gulp-i18n.svg?style=flat)](https://david-dm.org/ciclo-pe/gulp-i18n)
+[![devDependency Status](https://david-dm.org/ciclo-pe/gulp-i18n/dev-status.png)](https://david-dm.org/ciclo-pe/gulp-i18n#info=devDependencies)
 
 Compile `json` files using [`messageformat.js`](https://github.com/SlexAxton/messageformat.js).
 
