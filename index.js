@@ -56,7 +56,7 @@ module.exports = function (options) {
 
       const mf = new MessageFormat(locale);
       const data = locales[locale];
-      const compiled = 'window.i18n = (' + mf.compile(data) + ')();';
+      const compiled = 'window.i18n = (function () { ' + mf.compile(data) + ' })();';
 
       this.push(new Gutil.File({
         path: locale + '.js',
@@ -69,4 +69,3 @@ module.exports = function (options) {
 
   return Through.obj(parse, flush);
 };
-
